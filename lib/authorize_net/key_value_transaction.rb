@@ -148,6 +148,7 @@ module AuthorizeNet
       options = @@purchase_option_defaults.merge(options)
       handle_cavv_options(options)
       set_fields(:amount => amount)
+      set_fields(:currency_code => options[:currency_code])
       self.type = Type::AUTHORIZE_AND_CAPTURE
       run
     end
